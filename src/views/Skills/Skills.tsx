@@ -6,7 +6,7 @@ import { HorizontalCarousel } from "../../components/HorizontalCarousel/Horizont
 
 export default function Skills() {
   return (
-    <div className="flex flex-col justify-center items-center mt-12 mx-96">
+    <div className="flex flex-col justify-center items-center mt-12 mx-10 md:mx-24 lg:mx-32 xl:mx-96">
       <div className="w-full">
         <Title text="Skills" />
         <HorizontalCarousel>

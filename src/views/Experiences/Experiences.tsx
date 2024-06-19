@@ -13,7 +13,7 @@ export default function Experiences() {
 
   return (
     <div
-      className="flex flex-col justify-center items-center mt-12 text-2xl mx-96"
+      className="flex flex-col justify-center items-center mt-12 text-2xl mx-10 md:mx-24 lg:mx-32 xl:mx-96"
       id="experiences"
     >
       <div>

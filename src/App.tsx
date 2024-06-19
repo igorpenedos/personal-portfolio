@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
+import { Navbar } from "./components/Navbar/Navbar";
 import Landing from "./views/Landing/Landing";
 import Experiences from "./views/Experiences/Experiences";
 import Projects from "./views/Projects/Projects";
 import Skills from "./views/Skills/Skills";
-import { Navbar } from "./components/Navbar/Navbar";
 import Footer from "./views/Footer/Footer";
 
 function App() {

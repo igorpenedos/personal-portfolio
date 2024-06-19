@@ -33,29 +33,30 @@ export const Experience = (props: Props) => {
 
   return (
     <motion.div
-      className="text-xl"
+      className="text-lg md:text-xl"
       ref={ref}
-      initial="hidden"
+      // initial="hidden"
       whileInView="visible"
       viewport={{ margin: "-50% 0% -50% 0%" }}
     >
-      <div className="flex flex-row justify-between gap-12">
+      <div className="flex flex-col md:flex-row justify-between md:gap-12">
         <h2 className="text-3xl font-bold text-primary">{company}</h2>
         <h3>{startDate + " - " + endDate}</h3>
       </div>
       <h3>{position}</h3>
       <h3>{location}</h3>
       <motion.ul
-        className="text-lg list-disc text-accent ml-6"
+        className="text-base md:text-lg list-disc text-accent ml-6"
+        initial={{ opacity: 0, maxHeight: 0 }}
         variants={{
           visible: {
             opacity: 1,
             maxHeight: 1000,
           },
-          hidden: {
-            opacity: 0,
-            maxHeight: 0,
-          },
+          // hidden: {
+          //   opacity: 0,
+          //   maxHeight: 0,
+          // },
         }}
         transition={{ duration: 1 }}
       >

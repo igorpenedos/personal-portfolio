@@ -22,7 +22,7 @@ export const VerticalCarousel = (props: Props) => {
   }, [index, list.length]);
 
   return (
-    <div className="relative overflow-hidden flex h-12">
+    <div className="relative overflow-hidden flex h-7 md:h-12">
       <AnimatePresence initial={false}>
         <motion.div
           className="absolute"

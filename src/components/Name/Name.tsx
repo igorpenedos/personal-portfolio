@@ -15,9 +15,8 @@ export const Name = () => {
     //     Igor Penedos
     //   </h1>
     // </div>
-    <h1 className="flex flex-row gap-12 text-9xl font-bold drop-shadow-xl flex-wrap">
-      <span>Igor</span>
-      <span className="text-primary">Penedos</span>
+    <h1 className="text-5xl md:text-9xl font-bold drop-shadow-xl flex-wrap">
+      <span>Igor</span> <span className="text-primary">Penedos</span>
     </h1>
   );
 };

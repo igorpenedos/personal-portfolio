@@ -29,7 +29,7 @@ export default function Landing(props: Props) {
 
   return (
     <div
-      className="text-2xl h-screen flex flex-col justify-center items-center"
+      className="text-lg md:text-2xl h-screen flex flex-col justify-center items-center mx-10 md:mx-24 lg:mx-32 xl:mx-96"
       ref={ref}
       id="about"
     >
@@ -37,7 +37,7 @@ export default function Landing(props: Props) {
         <h2>Hey visitor, I am</h2>
         <Name />
         <br className="mt-24" />
-        <div className="text-4xl text-primary">
+        <div className="text-xl md:text-4xl text-primary">
           <VerticalCarousel list={Attributes} />
         </div>
         <h2>Toronto, ON</h2>
@@ -50,12 +50,14 @@ export default function Landing(props: Props) {
             <FaLinkedin className="hover:text-primary" size={32} />
           </Icon>
         </div>
-        
-        <br/>
 
-        <motion.div
-          className="relative overflow-hidden align-middle text-center bg-text px-6 py-2 w-max rounded-full cursor-pointer text-lg"
+        <br />
+
+        <motion.a
+          className="relative overflow-hidden align-middle text-center bg-text px-6 py-2 w-max rounded-full cursor-pointer text-lg flex flex-row"
           whileHover="hover"
+          href="./assets/Igor_Penedos_Resume.pdf"
+          target="_blank"
         >
           {/* Background Element */}
           <motion.div
@@ -86,7 +88,7 @@ export default function Landing(props: Props) {
               <GoArrowRight size={28} />
             </motion.div>
           </motion.div>
-        </motion.div>
+        </motion.a>
       </div>
     </div>
   );

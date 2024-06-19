@@ -18,7 +18,7 @@ export const projects: Project[] = [
       "The project uses React for the front end and Golang with the Gin framework to handle the backend communications with Mongo.DB collections.",
       "Developed endpoints to ensure students can graduate with enrolled courses while helping the front end implement a responsive design that can reflect the backend functionalities.",
     ],
-    photo: "prep.jpg",
+    photo: "tmuprep.jpg",
     link: "https://github.com/maryam-elbeshbishy/TMUPrep",
   },
   {
@@ -31,7 +31,7 @@ export const projects: Project[] = [
       "The NodeJS and ExpressJS backend communicates with the MongoDB collections to schedule drivers and calculate distances to customer addresses.",
       "Implemented secure password handling for customer accounts.",
     ],
-    photo: "ecom.png",
+    photo: "csa.jpg",
     link: "https://github.com/igorpenedos/customer-service-application",
   },
   {
@@ -40,7 +40,7 @@ export const projects: Project[] = [
     description:
       "Socket.io project that allows users to share files through a socket connection",
     points: [],
-    photo: "share.png",
+    photo: "share.jpg",
     link: "https://github.com/igorpenedos/file-share",
   },
   {
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     description:
       "A python password manager that uses a local database to store password through hashing",
     points: [],
-    photo: "password_manager.png",
+    photo: "password_manager.jpg",
     link: "https://github.com/igorpenedos/password-manager",
   },
   {
@@ -59,6 +59,15 @@ export const projects: Project[] = [
       "VS Code extension to have defualt templates when you create certain files",
     points: [],
     photo: "vs.jpg",
+    link: "https://github.com/igorpenedos/create-file-template",
+  },
+  {
+    name: "Discord Chat Archiver",
+    languages: ["React", "TypeScript", "Discord.JS"],
+    description:
+      "Allows users to integrate a bot into discord servers and store chat logs offline. The bot ensures no data loss and provides a web application to visualize stored logs",
+    points: [],
+    photo: "dca.jpg",
     link: "https://github.com/igorpenedos/create-file-template",
   },
 ];
