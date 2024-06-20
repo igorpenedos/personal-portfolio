@@ -29,7 +29,7 @@ export default function Landing(props: Props) {
 
   return (
     <div
-      className="text-lg md:text-2xl h-screen flex flex-col justify-center items-center mx-10 md:mx-24 lg:mx-32 xl:mx-96"
+      className="text-lg md:text-2xl h-screen flex flex-col justify-center items-center mx-10 md:mx-24 lg:mx-32 xl:mx-72"
       ref={ref}
       id="about"
     >

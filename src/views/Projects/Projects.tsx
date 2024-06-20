@@ -64,10 +64,10 @@ export default function Projects() {
   };
 
   return (
-    <div className="flex flex-col items-center mt-12 text-2xl mx-10 md:mx-24 lg:mx-32 xl:mx-96 h-[50vh] overflow-hidden">
-      <div className="h-full w-full">
+    <div className="flex flex-col items-center mt-12 text-2xl mx-10 md:mx-24 lg:mx-32 xl:mx-72 overflow-hidden">
+      <div className="w-full">
         <Title text="Projects" />
-        <div className="relative h-full w-full overflow-hidden">
+        <div className="relative h-[50vh] w-full z-50">
           <button
             className="cursor-pointer hover:scale-110 h-full absolute left-0 z-50"
             onClick={goToPreviousProject}
@@ -91,6 +91,8 @@ export default function Projects() {
                 link={project.link}
                 position={checkPosition(index)}
                 key={project.name}
+                goToNextProject={goToNextProject}
+                goToPreviousProject={goToPreviousProject}
               />
             ))}
           </AnimatePresence>
