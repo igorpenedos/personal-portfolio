@@ -1,14 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Title } from "../../components/Title/Title";
 import { experiences } from "../../utils/experiences";
 import { Experience } from "../../components/Experience/Experience";
 
 export default function Experiences() {
-  const [currentLogo, setCurrentLogo] = useState<string>("coveo_logo.jpg");
+  const [currentExp, setCurrentExp] = useState<number>(0);
+  const [openedExp, setOpenedExp] = useState<Array<number>>([]);
+  const [bottomMargin, setBottomMargin] = useState<number>(48);
+  const ref = useRef<any>(null);
 
-  const updateCurrentLogo = (newLogo: string) => {
-    setCurrentLogo(newLogo);
+  useEffect(() => {
+    console.log(ref.current?.childNodes[experiences.length - 1]?.clientHeight);
+    updateMarginHeight(
+      ref.current?.childNodes[experiences.length - 1]?.clientHeight
+    );
+  }, [currentExp]);
+
+  const updateCurrentExp = (expIndex: number) => {
+    setCurrentExp(expIndex);
+
+    if (
+      !openedExp.includes(expIndex) &&
+      expIndex !== openedExp[openedExp.length]
+    ) {
+      setOpenedExp([...openedExp, expIndex]);
+    } else {
+      setOpenedExp(openedExp.filter((i) => i !== expIndex + 1));
+    }
+  };
+
+  const updateMarginHeight = (height: number) => {
+    console.log("new height:", height);
+    setBottomMargin(height / 2);
   };
 
   return (
@@ -19,20 +43,23 @@ export default function Experiences() {
       <div>
         <Title text="Experiences" />
         <div className="relative flex flex-row gap-12 h-full mt-6">
-          <div className="flex justify-center w-0.5 min-h-full bg-text rounded-xl mt-[18px]">
+          <motion.div
+            className="flex justify-center w-0.5 min-h-full bg-text rounded-xl mt-[18px]"
+            animate={{ marginBottom: bottomMargin }}
+          >
             <motion.div className="sticky h-max top-1/2 -translate-y-1/2">
               <motion.img
                 className="w-16 h-16 rounded-full max-w-16 border-2 border-text"
-                src={`./assets/${currentLogo}`}
-                key={currentLogo}
+                src={`./assets/${experiences[currentExp].logo}`}
+                key={currentExp}
                 alt="Current Logo"
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
               />
             </motion.div>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2" ref={ref}>
             {experiences.map((experience, index) => (
               <Experience
                 company={experience.company}
@@ -42,8 +69,10 @@ export default function Experiences() {
                 location={experience.location}
                 points={experience.points}
                 logo={experience.logo}
+                index={index}
+                isCurrentExp={openedExp.includes(index)}
                 key={index}
-                updateCurrentLogo={updateCurrentLogo}
+                updateCurrentExp={updateCurrentExp}
               />
             ))}
           </div>

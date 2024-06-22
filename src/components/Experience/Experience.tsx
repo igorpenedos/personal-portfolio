@@ -9,7 +9,9 @@ interface Props {
   location: string;
   points: string[];
   logo: string;
-  updateCurrentLogo: (newLogo: string) => void;
+  index: number;
+  isCurrentExp: boolean;
+  updateCurrentExp: (expIndex: number) => void;
 }
 
 export const Experience = (props: Props) => {
@@ -21,24 +23,20 @@ export const Experience = (props: Props) => {
     location,
     points,
     logo,
-    updateCurrentLogo,
+    index,
+    isCurrentExp,
+    updateCurrentExp,
   } = props;
   const ref = useRef(null);
   const isInView = useInView(ref, { margin: "-50% 0% -50% 0%" });
 
   useEffect(() => {
-    if (isInView) updateCurrentLogo(logo);
+    if (isInView) updateCurrentExp(index);
     // eslint-disable-next-line
   }, [isInView]);
 
   return (
-    <motion.div
-      className="text-lg md:text-xl"
-      ref={ref}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ margin: "-50% 0% -50% 0%" }}
-    >
+    <motion.div className="text-lg md:text-xl" ref={ref}>
       <div className="flex flex-col md:flex-row justify-between md:gap-12">
         <h2 className="text-3xl font-bold text-primary">{company}</h2>
         <h3>{startDate + " - " + endDate}</h3>
@@ -47,6 +45,7 @@ export const Experience = (props: Props) => {
       <h3>{location}</h3>
       <motion.ul
         className="text-base md:text-lg list-disc text-accent ml-6"
+        animate={isCurrentExp ? "visible" : "hidden"}
         variants={{
           visible: {
             opacity: 1,

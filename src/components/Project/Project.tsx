@@ -31,10 +31,8 @@ export const Project = (props: Props) => {
   } = props;
 
   const bind = useDrag((state) => {
-    // console.log("state", state);
-
-    if (state.last === true && position === "current" && state.distance > 0) {
-      state.direction[0] === 1 ? goToPreviousProject() : goToNextProject();
+    if (state.last === true && state.axis === "x" && state.distance > 0) {
+      state.direction[0] > 0 ? goToPreviousProject() : goToNextProject();
     }
   });
 
@@ -88,21 +86,27 @@ export const Project = (props: Props) => {
         href={link}
         target="_blank"
       >
-        <div className="p-6 flex flex-col gap-2">
-          <h3 className="text-2xl md:text-3xl font-semibold">{name}</h3>
-          {/* <img className="" src={`./assets/${photo}`} alt={name} /> */}
-          <motion.div className="text-sm sm:text-base text-accent">
-            {description}
-          </motion.div>
-          <div className="flex flex-row flex-wrap gap-2">
-            {languages.map((language: string) => (
-              <div
-                className="text-xs py-1 px-4 bg-primary text-background rounded-full w-max"
-                key={language}
-              >
-                {language}
-              </div>
-            ))}
+        <div className="relative w-full h-full">
+          <div className="p-6 flex flex-col gap-2">
+            <h3 className="text-2xl md:text-3xl font-semibold">{name}</h3>
+            {/* <motion.img
+              className="absolute h-full w-full object-cover left-0 top-0 brightness-50 rounded-3xl"
+              src={`./assets/${photo}`}
+              alt={name}
+            /> */}
+            <div className="text-sm sm:text-base text-accent">
+              {description}
+            </div>
+            <div className="flex flex-row flex-wrap gap-2">
+              {languages.map((language: string) => (
+                <div
+                  className="text-xs py-1 px-4 bg-primary text-background rounded-full w-max"
+                  key={language}
+                >
+                  {language}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </motion.a>
