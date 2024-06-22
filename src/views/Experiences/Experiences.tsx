@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Title } from "../../components/Title/Title";
 import { experiences } from "../../utils/experiences";
@@ -7,15 +7,7 @@ import { Experience } from "../../components/Experience/Experience";
 export default function Experiences() {
   const [currentExp, setCurrentExp] = useState<number>(0);
   const [openedExp, setOpenedExp] = useState<Array<number>>([]);
-  const [bottomMargin, setBottomMargin] = useState<number>(48);
   const ref = useRef<any>(null);
-
-  useEffect(() => {
-    console.log(ref.current?.childNodes[experiences.length - 1]?.clientHeight);
-    updateMarginHeight(
-      ref.current?.childNodes[experiences.length - 1]?.clientHeight
-    );
-  }, [currentExp]);
 
   const updateCurrentExp = (expIndex: number) => {
     setCurrentExp(expIndex);
@@ -30,11 +22,6 @@ export default function Experiences() {
     }
   };
 
-  const updateMarginHeight = (height: number) => {
-    console.log("new height:", height);
-    setBottomMargin(height / 2);
-  };
-
   return (
     <div
       className="flex flex-col justify-center items-center mt-12 text-2xl mx-10 md:mx-24 lg:mx-32 xl:mx-72"
@@ -43,10 +30,7 @@ export default function Experiences() {
       <div>
         <Title text="Experiences" />
         <div className="relative flex flex-row gap-12 h-full mt-6">
-          <motion.div
-            className="flex justify-center w-0.5 min-h-full bg-text rounded-xl mt-[18px]"
-            animate={{ marginBottom: bottomMargin }}
-          >
+          <div className="flex justify-center w-0.5 min-h-full bg-text rounded-xl mt-[18px]">
             <motion.div className="sticky h-max top-1/2 -translate-y-1/2">
               <motion.img
                 className="w-16 h-16 rounded-full max-w-16 border-2 border-text"
@@ -57,7 +41,7 @@ export default function Experiences() {
                 animate={{ scale: 1, opacity: 1 }}
               />
             </motion.div>
-          </motion.div>
+          </div>
 
           <div className="flex flex-col gap-2" ref={ref}>
             {experiences.map((experience, index) => (

@@ -1,6 +1,5 @@
 {
   "name": "personal-portfolio",
-  "homepage": "http://igorpenedos.github.io/personal-portfolio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
