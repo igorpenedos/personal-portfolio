@@ -22,7 +22,6 @@ export const Experience = (props: Props) => {
     endDate,
     location,
     points,
-    logo,
     index,
     isCurrentExp,
     updateCurrentExp,
