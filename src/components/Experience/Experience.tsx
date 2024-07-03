@@ -43,15 +43,13 @@ export const Experience = (props: Props) => {
       <h3>{position}</h3>
       <h3>{location}</h3>
       <motion.ul
-        className="text-base md:text-lg list-disc text-accent ml-6"
+        className="text-base md:text-lg list-disc text-accent ml-6 overflow-hidden"
         animate={isCurrentExp ? "visible" : "hidden"}
         variants={{
           visible: {
-            opacity: 1,
             maxHeight: 1000,
           },
           hidden: {
-            opacity: 0,
             maxHeight: 0,
           },
         }}
