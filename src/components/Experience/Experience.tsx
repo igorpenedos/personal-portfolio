@@ -43,7 +43,7 @@ export const Experience = (props: Props) => {
       <h3>{position}</h3>
       <h3>{location}</h3>
       <motion.ul
-        className="text-base md:text-lg list-disc text-accent ml-6 overflow-hidden"
+        className="text-base md:text-lg list-disc list-outside text-accent pl-6 overflow-hidden"
         animate={isCurrentExp ? "visible" : "hidden"}
         variants={{
           visible: {
@@ -56,7 +56,7 @@ export const Experience = (props: Props) => {
         transition={{ duration: 1 }}
       >
         {points.map((point, index) => (
-          <li className="list-outside" key={index}>
+          <li key={index}>
             {point}
           </li>
         ))}
